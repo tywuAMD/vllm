@@ -128,15 +128,9 @@ static __device__ __forceinline__ void moe_q(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q4_0 64
-  #define MOE_Y_Q4_0 128
-  #define NWARPS_Q4_0 8
-#else
-  #define MOE_X_Q4_0 4
-  #define MOE_Y_Q4_0 32
-  #define NWARPS_Q4_0 4
-#endif
+#define MOE_X_Q4_0 4
+#define MOE_Y_Q4_0 32
+#define NWARPS_Q4_0 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -189,15 +183,9 @@ static void ggml_moe_q4_0_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q4_1 64
-  #define MOE_Y_Q4_1 128
-  #define NWARPS_Q4_1 8
-#else
-  #define MOE_X_Q4_1 4
-  #define MOE_Y_Q4_1 32
-  #define NWARPS_Q4_1 4
-#endif
+#define MOE_X_Q4_1 4
+#define MOE_Y_Q4_1 32
+#define NWARPS_Q4_1 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -250,15 +238,9 @@ static void ggml_moe_q4_1_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q5_0 64
-  #define MOE_Y_Q5_0 128
-  #define NWARPS_Q5_0 8
-#else
-  #define MOE_X_Q5_0 4
-  #define MOE_Y_Q5_0 32
-  #define NWARPS_Q5_0 4
-#endif
+#define MOE_X_Q5_0 4
+#define MOE_Y_Q5_0 32
+#define NWARPS_Q5_0 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -311,15 +293,9 @@ static void ggml_moe_q5_0_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q5_1 64
-  #define MOE_Y_Q5_1 128
-  #define NWARPS_Q5_1 8
-#else
-  #define MOE_X_Q5_1 4
-  #define MOE_Y_Q5_1 32
-  #define NWARPS_Q5_1 4
-#endif
+#define MOE_X_Q5_1 4
+#define MOE_Y_Q5_1 32
+#define NWARPS_Q5_1 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -372,15 +348,9 @@ static void ggml_moe_q5_1_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q8_0 64
-  #define MOE_Y_Q8_0 128
-  #define NWARPS_Q8_0 8
-#else
-  #define MOE_X_Q8_0 4
-  #define MOE_Y_Q8_0 32
-  #define NWARPS_Q8_0 4
-#endif
+#define MOE_X_Q8_0 4
+#define MOE_Y_Q8_0 32
+#define NWARPS_Q8_0 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -433,15 +403,9 @@ static void ggml_moe_q8_0_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q2_K 64
-  #define MOE_Y_Q2_K 128
-  #define NWARPS_Q2_K 8
-#else
-  #define MOE_X_Q2_K 4
-  #define MOE_Y_Q2_K 32
-  #define NWARPS_Q2_K 4
-#endif
+#define MOE_X_Q2_K 4
+#define MOE_Y_Q2_K 32
+#define NWARPS_Q2_K 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -494,15 +458,9 @@ static void ggml_moe_q2_K_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q3_K 64
-  #define MOE_Y_Q3_K 128
-  #define NWARPS_Q3_K 8
-#else
-  #define MOE_X_Q3_K 4
-  #define MOE_Y_Q3_K 32
-  #define NWARPS_Q3_K 4
-#endif
+#define MOE_X_Q3_K 4
+#define MOE_Y_Q3_K 32
+#define NWARPS_Q3_K 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -555,15 +513,9 @@ static void ggml_moe_q3_K_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q4_K 64
-  #define MOE_Y_Q4_K 128
-  #define NWARPS_Q4_K 8
-#else
-  #define MOE_X_Q4_K 4
-  #define MOE_Y_Q4_K 32
-  #define NWARPS_Q4_K 4
-#endif
+#define MOE_X_Q4_K 4
+#define MOE_Y_Q4_K 32
+#define NWARPS_Q4_K 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -616,15 +568,9 @@ static void ggml_moe_q4_K_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q5_K 64
-  #define MOE_Y_Q5_K 128
-  #define NWARPS_Q5_K 8
-#else
-  #define MOE_X_Q5_K 4
-  #define MOE_Y_Q5_K 32
-  #define NWARPS_Q5_K 4
-#endif
+#define MOE_X_Q5_K 4
+#define MOE_Y_Q5_K 32
+#define NWARPS_Q5_K 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
@@ -677,15 +623,9 @@ static void ggml_moe_q5_K_q8_1_cuda(
   }
 }
 
-#if defined(USE_ROCM)
-  #define MOE_X_Q6_K 64
-  #define MOE_Y_Q6_K 128
-  #define NWARPS_Q6_K 8
-#else
-  #define MOE_X_Q6_K 4
-  #define MOE_Y_Q6_K 32
-  #define NWARPS_Q6_K 4
-#endif
+#define MOE_X_Q6_K 4
+#define MOE_Y_Q6_K 32
+#define NWARPS_Q6_K 4
 
 template <typename scalar_t, bool need_check>
 static __global__ void
