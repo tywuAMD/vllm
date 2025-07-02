@@ -1,4 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 
 from contextlib import nullcontext
 from types import MethodType
@@ -972,10 +973,13 @@ def test_limit_mm_per_prompt_dummy(model_id, limit, num_supported, is_valid):
     if is_valid:
         exc_ctx = nullcontext()
     else:
-        exc_ctx = pytest.raises(ValueError, match="this model only supports")
+        exc_ctx = pytest.raises(ValueError, match="The model only supports")
 
     with exc_ctx:
-        profiler.get_decoder_dummy_data(model_config.max_model_len)
+        profiler.get_decoder_dummy_data(
+            model_config.max_model_len,
+            mm_counts=limit_mm_per_prompt,
+        )
 
 
 @pytest.mark.parametrize("model_id", ["llava-hf/llava-v1.6-mistral-7b-hf"])
@@ -1082,6 +1086,7 @@ def test_hf_processor_kwargs(model_id, call_kwargs, expected_kwargs):
         prompt="",
         mm_data={},
         mm_kwargs=call_kwargs,
+        tok_kwargs={},
     )
 
     assert out_kwargs == expected_kwargs
